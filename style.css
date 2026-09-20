@@ -1,0 +1,1463 @@
+@font-face {
+    font-family: "Coolvetica";
+    src: url("assets/fonts/CoolveticaRg.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --black: #151515;
+    --gray: #777;
+    --light-gray: #e4e4e4;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #e9e9e9;
+    color: var(--black);
+    font-family: "Coolvetica", sans-serif;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    border: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page {
+    width: 100%;
+    max-width: 760px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: var(--white);
+    overflow: hidden;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+    height: 440px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.02),
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.78)
+        ),
+        url("assets/images/bannerprofile.jpg")
+        center center / cover no-repeat;
+}
+
+.hero-content {
+    padding: 28px;
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 11px;
+    letter-spacing: 1.8px;
+
+    opacity: 0.75;
+}
+
+.hero h1 {
+    font-size: clamp(64px, 13vw, 100px);
+
+    line-height: 0.82;
+
+    font-weight: normal;
+
+    letter-spacing: -2px;
+}
+
+.hero-subtitle {
+    margin-top: 16px;
+
+    font-size: 14px;
+    letter-spacing: 0.8px;
+
+    opacity: 0.9;
+}
+
+.hero-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.verified-icon {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    display: inline-block;
+}
+
+/* Responsif untuk layar HP */
+@media (max-width: 600px) {
+    .hero-title {
+        gap: 8px;
+    }
+
+    .verified-icon {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+
+/* =========================
+   PROFILE INFORMATION
+========================= */
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 20px 22px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.profile-photo {
+    flex: 0 0 88px;
+    width: 88px;
+    height: 88px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.profile-data {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.profile-data-item {
+    display: flex;
+    align-items: center;
+}
+
+.profile-data-item span {
+    color: #777;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+}
+
+.profile-data-item strong {
+    color: var(--black);
+    font-size: 27px;
+    font-weight: normal;
+    line-height: 1.1;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 32px 22px;
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: baseline;
+
+    margin-bottom: 17px;
+}
+
+.section-heading h2 {
+    font-size: 29px;
+
+    line-height: 1;
+
+    font-weight: normal;
+}
+
+.section-heading > span {
+    color: #999;
+
+    font-size: 9px;
+    letter-spacing: 1.3px;
+}
+
+
+/* =========================
+   MY BUSINESS
+========================= */
+
+.business-scroll {
+    display: flex;
+
+    gap: 24px;
+
+    overflow-x: auto;
+
+    padding-bottom: 5px;
+
+    scrollbar-width: none;
+
+    scroll-snap-type: x mandatory;
+}
+
+.business-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.business-column {
+    flex: 0 0 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+    scroll-snap-align: start;
+}
+
+.business-card {
+    width: 100%;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+
+    border: 0;
+    border-bottom: 1px solid #eeeeee;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: background 0.15s ease;
+}
+
+.business-card:last-child {
+    border-bottom: 0;
+}
+
+.business-card:active {
+    background: #f5f5f5;
+}
+
+.business-card-image {
+    flex: 0 0 54px;
+
+    width: 54px;
+    height: 54px;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+
+    background: #eee;
+}
+
+.business-card-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.business-card-info {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 0 12px;
+}
+
+.business-card-info > span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #999;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.business-card-info h3 {
+    margin: 0 0 3px;
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    font-weight: normal;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.business-card-info p {
+    margin: 0;
+
+    color: #888;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================
+   PORTFOLIO
+========================= */
+
+.portfolio-card {
+    position: relative;
+
+    display: block;
+
+    min-height: 265px;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    background: #151515;
+
+    color: white;
+}
+
+.portfolio-preview {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    background: #eee;
+}
+
+.portfolio-preview iframe {
+    position: absolute;
+
+    width: 125%;
+    height: 125%;
+
+    top: -5%;
+    left: -12.5%;
+
+    border: 0;
+
+    transform: scale(0.8);
+
+    transform-origin: center;
+
+    background: white;
+}
+
+.preview-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.02),
+            rgba(0, 0, 0, 0.14) 45%,
+            rgba(0, 0, 0, 0.88)
+        );
+}
+
+.portfolio-content {
+    position: absolute;
+
+    inset: auto 20px 18px 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.portfolio-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 9px;
+    letter-spacing: 1.3px;
+
+    opacity: 0.7;
+}
+
+.portfolio-content h3 {
+    margin-bottom: 3px;
+
+    font-size: 28px;
+
+    font-weight: normal;
+}
+
+.portfolio-content p {
+    font-size: 12px;
+
+    opacity: 0.7;
+}
+
+.portfolio-arrow {
+    font-size: 25px;
+}
+
+
+/* =========================
+   INFO BANNER
+========================= */
+
+.info-scroll {
+    display: flex;
+
+    gap: 12px;
+
+    overflow-x: auto;
+
+    padding-bottom: 5px;
+
+    scrollbar-width: none;
+}
+
+.info-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.info-card {
+    position: relative;
+
+    flex: 0 0 250px;
+
+    height: 150px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #222;
+}
+
+.info-card img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.info-card-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 15px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.78),
+            transparent 65%
+        );
+}
+
+.info-card-overlay span {
+    margin-bottom: 4px;
+
+    font-size: 8px;
+    letter-spacing: 1.3px;
+
+    opacity: 0.7;
+}
+
+.info-card-overlay h3 {
+    font-size: 18px;
+
+    font-weight: normal;
+}
+
+
+/* =========================
+   BIRTHDAY
+========================= */
+
+.birthday-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+.birthday-box {
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid var(--light-gray);
+
+    border-radius: 13px;
+
+    background: white;
+}
+
+.birthday-box span {
+    color: #e53935;
+
+    font-size: 14px;
+}
+
+.birthday-box strong {
+    margin-top: 1px;
+
+    font-size: 30px;
+
+    line-height: 0.9;
+
+    font-weight: normal;
+}
+
+.birthday-row > p {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: #f5f5f5;
+}
+
+.about-text {
+    max-width: 600px;
+
+    color: #555;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.about-text p + p {
+    margin-top: 13px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 24px 22px 30px;
+
+    border-top: 1px solid var(--light-gray);
+
+    color: #999;
+
+    font-size: 10px;
+}
+
+
+/* REMOVE BUTTON BLUE EFFECT */
+
+.business-card,
+.business-card:hover,
+.business-card:focus,
+.business-card:focus-visible,
+.business-card:active {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.business-card:focus,
+.business-card:focus-visible {
+    box-shadow: none;
+}
+
+
+/* =========================
+   BANNER POPUP
+========================= */
+
+.banner-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.banner-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.banner-popup-content {
+    position: relative;
+
+    width: min(760px, 100%);
+    max-height: 92vh;
+
+    background: #fff;
+
+    border-radius: 24px 24px 0 0;
+
+    padding: 14px;
+
+    transform: translateY(100%);
+
+    transition: transform 0.55s cubic-bezier(
+        0.34,
+        1.56,
+        0.64,
+        1
+    );
+
+    overflow: hidden;
+}
+
+.banner-popup.active .banner-popup-content {
+    transform: translateY(0);
+}
+
+.banner-popup-content img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-height: calc(92vh - 28px);
+
+    object-fit: contain;
+
+    border-radius: 14px;
+}
+
+.banner-popup-close {
+    position: absolute;
+
+    top: 22px;
+    right: 22px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+
+    font-family: inherit;
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.banner-popup-close:focus,
+.banner-popup-close:focus-visible,
+.banner-popup-close:active {
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================
+   PORTFOLIO POPUP
+========================= */
+
+.portfolio-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.portfolio-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.portfolio-popup-content {
+    position: relative;
+
+    width: min(900px, 100%);
+    height: min(88vh, 760px);
+
+    background: #fff;
+
+    border-radius: 24px 24px 0 0;
+
+    overflow: hidden;
+
+    transform: translateY(100%);
+
+    transition:
+        transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.portfolio-popup.active .portfolio-popup-content {
+    transform: translateY(0);
+}
+
+.portfolio-popup-content iframe {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border: none;
+
+    background: #fff;
+}
+
+.portfolio-popup-close {
+    position: absolute;
+
+    top: 16px;
+    right: 16px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.portfolio-popup-close:focus,
+.portfolio-popup-close:focus-visible,
+.portfolio-popup-close:active {
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* =========================
+   CONTACT OVERLAY (BLUR BACKGROUND)
+========================= */
+
+.contact-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.contact-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================
+   PAIMON CONTACT MENU (DRAGGABLE)
+========================= */
+
+.contact-menu {
+    position: fixed;
+    top: 18px;
+    left: auto;
+    right: 18px;
+
+    width: 58px;
+    height: 58px;
+
+    z-index: 9999;
+
+    font-family: inherit;
+
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.contact-menu.snap-animating {
+    transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/* =========================
+   PAIMON BUTTON
+========================= */
+
+.paimon-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 58px;
+    height: 58px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: grab;
+
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.paimon-button:active {
+    cursor: grabbing;
+}
+
+.paimon-button img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
+
+    background: transparent;
+    pointer-events: none;
+}
+
+.paimon-button:hover {
+    transform: scale(1.06);
+}
+
+.paimon-button:focus,
+.paimon-button:focus-visible {
+    outline: none;
+}
+
+
+/* =========================
+   CONTACT PANEL & ORIENTATION
+========================= */
+
+.contact-panel {
+    position: absolute;
+
+    top: 0;
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(0.15);
+
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.2);
+
+    transition:
+        width 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+        height 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+        border-radius 0.45s ease,
+        transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+/* SNAP RIGHT (DEFAULT) */
+.contact-menu.snap-right .contact-panel {
+    right: 0;
+    left: auto;
+    transform-origin: top right;
+}
+
+/* SNAP LEFT */
+.contact-menu.snap-left .contact-panel {
+    left: 0;
+    right: auto;
+    transform-origin: top left;
+}
+
+.contact-menu.snap-left .paimon-button {
+    left: 0;
+    right: auto;
+}
+
+.contact-menu.snap-right .paimon-button {
+    right: 0;
+    left: auto;
+}
+
+
+/* OPEN PANEL */
+
+.contact-menu.active .contact-panel {
+    width: min(350px, calc(100vw - 36px));
+    height: auto;
+
+    min-height: 390px;
+
+    border-radius: 24px;
+
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* =========================
+   PANEL CONTENT
+========================= */
+
+.contact-panel-inner {
+    width: 100%;
+
+    padding: 76px 18px 18px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.contact-header {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 14px;
+
+    padding: 0 4px;
+}
+
+.contact-header span {
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+
+    color: #444;
+}
+
+.contact-header small {
+    margin-top: 3px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    color: #777;
+}
+
+
+/* =========================
+   CONTACT ITEMS
+========================= */
+
+.contact-item {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px;
+
+    margin-top: 7px;
+
+    border-radius: 15px;
+
+    color: #151515;
+
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    transform: translateY(-10px);
+
+    opacity: 0;
+
+    transition:
+        background 0.2s ease,
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.contact-item:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================
+   ITEM ANIMATION
+========================= */
+
+.contact-menu.active .contact-item {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.contact-menu.active .contact-item:nth-child(2) {
+    transition-delay: 0.16s;
+}
+
+.contact-menu.active .contact-item:nth-child(3) {
+    transition-delay: 0.21s;
+}
+
+.contact-menu.active .contact-item:nth-child(4) {
+    transition-delay: 0.26s;
+}
+
+.contact-menu.active .contact-item:nth-child(5) {
+    transition-delay: 0.31s;
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.contact-icon {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    overflow: hidden;
+}
+
+.contact-icon img {
+    width: 22px;
+    height: 22px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    margin-left: 11px;
+
+    line-height: 1.1;
+}
+
+.contact-text strong {
+    font-size: 14px;
+
+    font-weight: normal;
+}
+
+.contact-text small {
+    margin-top: 4px;
+
+    font-size: 11px;
+
+    color: #666;
+}
+
+
+/* =========================
+   ARROW
+========================= */
+
+.contact-arrow {
+    margin-left: auto;
+
+    font-size: 17px;
+
+    color: #888;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        background: white;
+    }
+
+    .hero {
+        height: 410px;
+
+        background-position: center center;
+    }
+
+    .hero-content {
+        padding: 22px 18px 26px;
+    }
+
+    .hero h1 {
+        font-size: 72px;
+    }
+
+    .hero-subtitle {
+        margin-top: 13px;
+
+        font-size: 13px;
+    }
+
+    /* PROFILE */
+
+    .profile-info {
+        gap: 16px;
+
+        padding: 18px 16px;
+    }
+
+    .profile-photo {
+        flex-basis: 72px;
+
+        width: 72px;
+        height: 72px;
+    }
+
+    .profile-data {
+        gap: 6px;
+    }
+
+    .profile-data-item {
+        gap: 7px;
+    }
+
+    .profile-data-item span {
+        font-size: 12px !important;
+        letter-spacing: 0.2px;
+    }
+
+    .profile-data-item strong {
+        font-size: 20px !important;
+    }
+
+    /* SECTIONS */
+
+    .section {
+        padding: 28px 16px;
+    }
+
+    .section-heading {
+        margin-bottom: 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    /* BUSINESS */
+
+    .business-scroll {
+        gap: 24px;
+    }
+
+    .business-column {
+        flex-basis: 100%;
+        gap: 2px;
+    }
+
+    .business-card {
+        height: 60px;
+    }
+
+    .business-card-image {
+        flex-basis: 50px;
+
+        width: 50px;
+        height: 50px;
+
+        border-radius: 6px;
+    }
+
+    .business-card-info {
+        padding: 0 11px;
+    }
+
+    .business-card-info h3 {
+        font-size: 15px;
+    }
+
+    .business-card-info > span {
+        font-size: 6.5px;
+    }
+
+    .business-card-info p {
+        font-size: 8.5px;
+    }
+
+    /* PORTFOLIO */
+
+    .portfolio-card {
+        min-height: 235px;
+    }
+
+    .portfolio-popup-content {
+        width: 100%;
+        height: 90vh;
+
+        border-radius: 20px 20px 0 0;
+    }
+
+    .portfolio-popup-close {
+        top: 14px;
+        right: 14px;
+
+        width: 34px;
+        height: 34px;
+
+        font-size: 23px;
+    }
+
+    /* INFO BANNER */
+
+    .info-card {
+        flex-basis: 235px;
+
+        height: 140px;
+    }
+
+    /* BANNER POPUP */
+
+    .banner-popup-content {
+        width: 100%;
+        padding: 10px;
+
+        border-radius: 20px 20px 0 0;
+    }
+
+    .banner-popup-content img {
+        border-radius: 12px;
+        max-height: 88vh;
+    }
+
+    .banner-popup-close {
+        top: 18px;
+        right: 18px;
+
+        width: 34px;
+        height: 34px;
+
+        font-size: 23px;
+    }
+
+    /* ABOUT */
+
+    .about-text {
+        font-size: 13.5px;
+    }
+
+    /* FOOTER */
+
+    footer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* PAIMON MENU MOBILE */
+
+    .contact-menu {
+        top: 14px;
+
+        width: 52px;
+        height: 52px;
+    }
+
+    .paimon-button {
+        width: 52px;
+        height: 52px;
+    }
+
+    .contact-panel {
+        width: 52px;
+        height: 52px;
+    }
+
+    .contact-menu.active .contact-panel {
+        width: calc(100vw - 28px);
+        min-height: 380px;
+
+        border-radius: 22px;
+    }
+
+    .contact-panel-inner {
+        padding: 68px 14px 14px;
+    }
+}
+
+
+/* =========================
+   REMOVE TAP HIGHLIGHT
+========================= */
+
+.contact-item,
+.paimon-button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.contact-item:focus,
+.contact-item:focus-visible,
+.paimon-button:focus,
+.paimon-button:focus-visible {
+    outline: none;
+}
